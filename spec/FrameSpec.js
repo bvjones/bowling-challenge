@@ -2,13 +2,13 @@ describe('Frame', function(){
   frame = new Frame()
 
   it('constructed with an empty array for frame score', function(){
-    expect(frame.frameScore).toEqual([0,0])
+    expect(frame._frameScore).toEqual([]);
   });
 
   describe('#add', function(){
     it('should add the number of pins fallen', function(){
-      frame.frameScore = [1,6]
-      expect(frame.frameScore).toContain(1)
+      spyOn(frame, "score").and.returnValue([6]);
+      expect(frame.score()).toContain(6);
     });
   });
 
