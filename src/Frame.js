@@ -9,5 +9,25 @@ Frame.prototype.add = function(score) {
 };
 
 Frame.prototype.score = function() {
-  this._frameScore
+  return this._frameScore.reduce(function(a,b) {
+    return a + b
+  });
+};
+
+Frame.prototype._firstRoll = function () {
+  return this._frameScore[0];
+};
+
+Frame.prototype._secondRoll = function () {
+  return this._frameScore[1];
+};
+
+Frame.prototype.frameTotal = function () {
+  return this._frameScore.reduce(function(a,b) {
+    return a + b
+  });
+};
+
+Frame.prototype.isStrike = function() {
+
 };
