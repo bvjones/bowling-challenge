@@ -1,7 +1,7 @@
 'use strict';
 
 var Frame = function(){
-  this._frameScore = []
+  this._frameScore = new Array
 }
 
 Frame.prototype.add = function(score) {
@@ -14,17 +14,18 @@ Frame.prototype._firstRoll = function () {
 
 Frame.prototype._secondRoll = function () {
   return this._frameScore[1];
+  frame.endOfFrame();
 };
 
 Frame.prototype.frameTotal = function () {
   return this._frameScore.reduce(function(a,b) {
-    return a + b
+    return a + b;
   });
 };
 
 Frame.prototype.isStrike = function() {
   if(this._frameScore[0] == 10) {
-    return true
+    return true;
   } else {return false}
 };
 
@@ -33,4 +34,8 @@ Frame.prototype.isSpare = function () {
   if(this.isStrike() == false && this.total == 10){
     return true
   } else {return false}
+};
+
+Frame.prototype.endOfFrame = function (){
+  Array.prototype.push.apply(scorecard._overallScore, this._frameScore);
 };

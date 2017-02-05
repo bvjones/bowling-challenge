@@ -38,12 +38,20 @@ describe('Frame', function(){
       spyOn(frame, "isStrike").and.returnValue(true);
       expect(frame.isStrike()).toEqual(true)
     });
+    it('checks if strike is false', function(){
+      spyOn(frame, "isStrike").and.returnValue(false);
+      expect(frame.isStrike()).toEqual(false)
+    });
+  });
 
     describe('isSpare', function(){
       it('checks if total of two throws equals 10(spare)', function(){
         spyOn(frame, "isSpare").and.returnValue(true);
         expect(frame.isSpare()).toEqual(true)
       });
+      it('checks if spare is false', function(){
+        spyOn(frame, "isSpare").and.returnValue(false);
+        expect(frame.isSpare()).toEqual(false)
+      });
     });
-  });
 });

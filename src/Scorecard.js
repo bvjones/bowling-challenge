@@ -3,11 +3,8 @@ var Scorecard = function(){
 }
 
 Scorecard.prototype.score = function() {
-  return frame.frameTotal()
+  return this._overallScore;
 };
-
-
-
 
 
 
