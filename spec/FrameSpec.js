@@ -7,8 +7,8 @@ describe('Frame', function(){
 
   describe('#add', function(){
     it('should add the number of pins fallen', function(){
-      spyOn(frame, "score").and.returnValue([6]);
-      expect(frame.score()).toContain(6);
+      spyOn(frame, "frameTotal").and.returnValue([6]);
+      expect(frame.frameTotal()).toContain(6);
     });
   });
 
@@ -28,8 +28,22 @@ describe('Frame', function(){
 
   describe('frameTotal', function(){
     it('returns the frame score', function(){
-      spyOn(frame, "frameTotal").and.returnValue([6,4]);
-      expect(frame.frameTotal()).toEqual([6,4])
+      spyOn(frame, "frameTotal").and.returnValue([10]);
+      expect(frame.frameTotal()).toEqual([10])
+    });
+  });
+
+  describe('isStrike', function(){
+    it('checks if the first throw was a strike', function(){
+      spyOn(frame, "isStrike").and.returnValue(true);
+      expect(frame.isStrike()).toEqual(true)
+    });
+
+    describe('isSpare', function(){
+      it('checks if total of two throws equals 10(spare)', function(){
+        spyOn(frame, "isSpare").and.returnValue(true);
+        expect(frame.isSpare()).toEqual(true)
+      });
     });
   });
 });

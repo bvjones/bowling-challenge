@@ -3,7 +3,7 @@ var Scorecard = function(){
 }
 
 Scorecard.prototype.score = function() {
-  return frame._frameScore
+  return frame.frameTotal()
 };
 
 
