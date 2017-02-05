@@ -5,7 +5,12 @@ var Frame = function(){
 }
 
 Frame.prototype.add = function(score) {
-  this._frameScore.push(score)
+  if(this._frameScore[0] != null) { //second score input
+    this._frameScore.push(score)
+    this.endOfFrame()
+  } else {
+    this._frameScore.push(score)
+  }
 };
 
 Frame.prototype._firstRoll = function () {
@@ -14,7 +19,6 @@ Frame.prototype._firstRoll = function () {
 
 Frame.prototype._secondRoll = function () {
   return this._frameScore[1];
-  frame.endOfFrame();
 };
 
 Frame.prototype.frameTotal = function () {
@@ -25,6 +29,7 @@ Frame.prototype.frameTotal = function () {
 
 Frame.prototype.isStrike = function() {
   if(this._frameScore[0] == 10) {
+    this._frameScore[1] = 0
     return true;
   } else {return false}
 };
@@ -37,5 +42,6 @@ Frame.prototype.isSpare = function () {
 };
 
 Frame.prototype.endOfFrame = function (){
-  Array.prototype.push.apply(scorecard._overallScore, this._frameScore);
+  Array.prototype.push.apply(scorecard.gameArray, this._frameScore);
+  this._frameScore = new Array
 };

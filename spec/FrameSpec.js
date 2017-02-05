@@ -54,4 +54,12 @@ describe('Frame', function(){
         expect(frame.isSpare()).toEqual(false)
       });
     });
+
+    describe('endOfFrame', function(){
+      it('resets the frameScore array', function(){
+        frame.add(5)
+        frame.endOfFrame()
+        expect(frame._frameScore).toEqual([])
+      });
+    });
 });
